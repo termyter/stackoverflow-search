@@ -15,7 +15,7 @@ class PostView: UIView {
     private var titleText = UILabel()
     private var bodyText = UILabel()
     private var nameText = UILabel()
-    private var image = UIImageView()
+    var image = UIImageView()
     private var dateText = UILabel()
     private var answerCount = UILabel()
     var model: PostModel = PostModel.empty {
@@ -36,10 +36,20 @@ class PostView: UIView {
         self.backgroundColor = .systemBackground
         setupTitleText()
         setupImage()
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        image.addGestureRecognizer(tapGR)
+        image.isUserInteractionEnabled = true
         setupNameText()
         setupDateText()
         setupAnswerCount()
         setupBodyText()
+    }
+
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+            if sender.state == .ended {
+                UIApplication.shared.openURL(URL(string: model.link)!)
+                print(123)
+            }
     }
 
     required init?(coder: NSCoder) {

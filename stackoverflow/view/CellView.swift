@@ -67,7 +67,6 @@ class CellView: UIView {
         image.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 5).isActive = true
         image.leadingAnchor.constraint( equalTo: leadingAnchor, constant: 10).isActive = true
         image.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
-        //image.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
 
     private func setupNameText() {

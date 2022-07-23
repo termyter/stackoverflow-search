@@ -33,8 +33,7 @@ class AnswerNetwork {
                             name: String(htmlEncodedString: object.owner.displayName) ?? "",
                             date: newDate,
                             body: String(htmlEncodedString: object.body) ?? "",
-                            score: object.score,
-                            link: object.owner.link
+                            score: object.score
                         )
                         listModels.append(model)
                     }

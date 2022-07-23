@@ -34,7 +34,8 @@ class SearchNetwork {
                             name: String(htmlEncodedString: object.owner.displayName) ?? "",
                             date: newDate,
                             answer_count: Int32(object.answerCount),
-                            body: String(htmlEncodedString: object.body) ?? ""
+                            body: String(htmlEncodedString: object.body) ?? "",
+                            link: object.owner.link ?? ""
                         )
                         listModels.append(model)
                     }

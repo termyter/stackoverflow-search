@@ -10,7 +10,7 @@ import UIKit
 
 class PostCell: UITableViewCell {
 
-    private var cellView = PostView()
+    var cellView = PostView()
     private var selectedButton = UIButton(type: .custom)
     var model: PostModel? {
         get {

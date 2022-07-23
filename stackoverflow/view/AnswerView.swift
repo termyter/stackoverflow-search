@@ -34,9 +34,6 @@ class AnswerView: UIView {
         layer.shadowRadius = 14
 //        setupTitleText()
         setupImage()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        image.isUserInteractionEnabled = true
-        image.addGestureRecognizer(tapGestureRecognizer)
         setupNameText()
         setupDateText()
         setupScoreText()
@@ -47,30 +44,6 @@ class AnswerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-//        UIApplication.shared.openURL(URL(string: model.link)!)
-        print(123)
-
-    }
-
-//    private func setupTitleText() {
-//        titleText.translatesAutoresizingMaskIntoConstraints = false
-//
-//        titleText.numberOfLines = 0
-//        let maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
-//        let expectedLabelSize: CGSize = titleText.sizeThatFits(maximumLabelSize)
-//        var newFrame: CGRect = titleText.frame
-//        newFrame.size.height = expectedLabelSize.height
-//        titleText.frame = newFrame
-//
-//        addSubview(titleText)
-//        titleText.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-//        titleText.leadingAnchor.constraint( equalTo: leadingAnchor, constant: 10).isActive = true
-//        titleText.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-//    }
-
     private func setupImage() {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -79,7 +52,6 @@ class AnswerView: UIView {
         image.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true
         image.leadingAnchor.constraint( equalTo: leadingAnchor, constant: 10).isActive = true
         image.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
-//        image.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
 
     private func setupNameText() {

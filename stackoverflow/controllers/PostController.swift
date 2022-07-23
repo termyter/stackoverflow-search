@@ -67,8 +67,12 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostCell else {
                 fatalError("не CustomCell")
             }
+            let lpgr = UITapGestureRecognizer(target: self, action: #selector(PostController.handleTapPress(_:)))
+            tableView.addGestureRecognizer(lpgr)
+            
             cell.selectionStyle = .none
             cell.model = model
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomAnswerCell", for: indexPath) as? CustomAnswerCell else {
@@ -78,6 +82,10 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.model = listModels[indexPath.row - 1]
             return cell
         }
+    }
+
+    @objc func handleTapPress(_ gesture: UITapGestureRecognizer){
+        UIApplication.shared.openURL(URL(string: model.link)!)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
