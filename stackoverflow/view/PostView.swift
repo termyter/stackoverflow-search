@@ -48,7 +48,6 @@ class PostView: UIView {
     @objc func imageTapped(sender: UITapGestureRecognizer) {
             if sender.state == .ended {
                 UIApplication.shared.openURL(URL(string: model.link)!)
-                print(123)
             }
     }
 
