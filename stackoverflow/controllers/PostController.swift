@@ -67,7 +67,7 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostCell else {
                 fatalError("не CustomCell")
             }
-            cell.cellView.image.userInteractionEnabled =
+//            cell.cellView.image.userInteractionEnabled =
             let lpgr = UITapGestureRecognizer(target: self, action: #selector(PostController.handleTapPress(_:)))
             cell.cellView.image.addGestureRecognizer(lpgr)
             
