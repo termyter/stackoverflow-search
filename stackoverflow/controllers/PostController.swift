@@ -69,6 +69,7 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
 //            cell.cellView.image.userInteractionEnabled =
             let lpgr = UITapGestureRecognizer(target: self, action: #selector(PostController.handleTapPress(_:)))
+            cell.cellView.image.isUserInteractionEnabled = true
             cell.cellView.image.addGestureRecognizer(lpgr)
             
             cell.selectionStyle = .none
@@ -85,7 +86,7 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
-    @objc func handleTapPress(_ gesture: UITapGestureRecognizer){
+    @objc func handleTapPress(_ sender: Any){
         UIApplication.shared.openURL(URL(string: model.link)!)
     }
 
