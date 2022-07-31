@@ -15,7 +15,7 @@ class PostView: UIView {
     private var titleText = UILabel()
     private var bodyText = UILabel()
     private var nameText = UILabel()
-    var image = UIImageView()
+    private var image = UIImageView()
     private var dateText = UILabel()
     private var answerCount = UILabel()
     var model: PostModel = PostModel.empty {
@@ -57,13 +57,7 @@ class PostView: UIView {
 
     private func setupTitleText() {
         titleText.translatesAutoresizingMaskIntoConstraints = false
-
         titleText.numberOfLines = 0
-        let maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
-        let expectedLabelSize: CGSize = titleText.sizeThatFits(maximumLabelSize)
-        var newFrame: CGRect = titleText.frame
-        newFrame.size.height = expectedLabelSize.height
-        titleText.frame = newFrame
 
         addSubview(titleText)
         titleText.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
@@ -79,7 +73,6 @@ class PostView: UIView {
         image.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 5).isActive = true
         image.leadingAnchor.constraint( equalTo: leadingAnchor, constant: 10).isActive = true
         image.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
-        //image.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
 
     private func setupNameText() {
@@ -112,20 +105,8 @@ class PostView: UIView {
 
     private func setupBodyText() {
         bodyText.translatesAutoresizingMaskIntoConstraints = false
-        bodyText.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-
-
-        bodyText.translatesAutoresizingMaskIntoConstraints = false
-
         bodyText.numberOfLines = 0
-        let maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
-        let expectedLabelSize: CGSize = bodyText.sizeThatFits(maximumLabelSize)
-        // create a frame that is filled with the UILabel frame data
-        var newFrame: CGRect = bodyText.frame
-        // resizing the frame to calculated size
-        newFrame.size.height = expectedLabelSize.height
-        // put calculated frame into UILabel frame
-        bodyText.frame = newFrame
+
 
         addSubview(bodyText)
         bodyText.topAnchor.constraint(equalTo: answerCount.bottomAnchor, constant: 5).isActive = true

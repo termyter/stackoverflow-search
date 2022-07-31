@@ -84,20 +84,7 @@ class AnswerView: UIView {
 
     private func setupBodyText() {
         bodyText.translatesAutoresizingMaskIntoConstraints = false
-        bodyText.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-
-
-        bodyText.translatesAutoresizingMaskIntoConstraints = false
-
         bodyText.numberOfLines = 0
-        let maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
-        let expectedLabelSize: CGSize = bodyText.sizeThatFits(maximumLabelSize)
-        // create a frame that is filled with the UILabel frame data
-        var newFrame: CGRect = bodyText.frame
-        // resizing the frame to calculated size
-        newFrame.size.height = expectedLabelSize.height
-        // put calculated frame into UILabel frame
-        bodyText.frame = newFrame
 
         addSubview(bodyText)
         bodyText.topAnchor.constraint(equalTo: scoreText.bottomAnchor, constant: 5).isActive = true

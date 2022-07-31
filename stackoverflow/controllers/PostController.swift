@@ -36,6 +36,9 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.delegate = self
         table.dataSource = self
 
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 44.0
+
         table.estimatedRowHeight = 68.0
         table.rowHeight = UITableView.automaticDimension
 
@@ -43,7 +46,7 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupUI()
         answerNetwork.answerNetworkDelegate = self
 
-        //переделать
+
         answerNetwork.fetch(idPost: model.id)
     }
 
@@ -77,10 +80,6 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostCell else {
                 fatalError("не CustomCell")
             }
-//            cell.cellView.image.userInteractionEnabled =
-            let lpgr = UITapGestureRecognizer(target: self, action: #selector(PostController.handleTapPress(_:)))
-            cell.cellView.image.isUserInteractionEnabled = true
-            cell.cellView.image.addGestureRecognizer(lpgr)
             
             cell.selectionStyle = .none
             cell.model = model
@@ -96,13 +95,6 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
-    @objc func handleTapPress(_ sender: Any){
-        UIApplication.shared.openURL(URL(string: model.link)!)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-    }
     
 }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class PostCell: UITableViewCell {
 
-    var cellView = PostView()
+    private var cellView = PostView()
     private var selectedButton = UIButton(type: .custom)
     var model: PostModel? {
         get {
@@ -25,9 +25,6 @@ class PostCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white
         setupView()
-//        print(cellView.frame)
-//        print(contentView.frame)
-//        print(self.frame)
     }
 
     override func prepareForReuse() {
@@ -43,13 +40,16 @@ class PostCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+
     private func setupView() {
+
+        let marginGuide = contentView.layoutMarginsGuide
+
         cellView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(cellView)
-//        addSubview(cellView)
-        cellView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        cellView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        cellView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        cellView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5).isActive = true
+        cellView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        cellView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        cellView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor, constant: -5).isActive = true
+        cellView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
     }
 }
