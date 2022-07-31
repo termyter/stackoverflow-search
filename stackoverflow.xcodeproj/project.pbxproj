@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF024FB62896D61E001D11D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF024FB82896D61E001D11D2 /* Localizable.strings */; };
 		FF3438422881A9A3009B82A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3438412881A9A3009B82A0 /* AppDelegate.swift */; };
 		FF3438442881A9A3009B82A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3438432881A9A3009B82A0 /* SceneDelegate.swift */; };
 		FF3438462881A9A3009B82A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3438452881A9A3009B82A0 /* ViewController.swift */; };
-		FF3438492881A9A3009B82A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3438472881A9A3009B82A0 /* Main.storyboard */; };
 		FF34384B2881A9A6009B82A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF34384A2881A9A6009B82A0 /* Assets.xcassets */; };
 		FF34384E2881A9A6009B82A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF34384C2881A9A6009B82A0 /* LaunchScreen.storyboard */; };
 		FF3438582881B65E009B82A0 /* CustomPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3438572881B65E009B82A0 /* CustomPostCell.swift */; };
@@ -29,11 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF024FB72896D61E001D11D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FF024FB92896D636001D11D2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FF024FBA2896D636001D11D2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF34383E2881A9A3009B82A0 /* stackoverflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stackoverflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3438412881A9A3009B82A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF3438432881A9A3009B82A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF3438452881A9A3009B82A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF3438482881A9A3009B82A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF34384A2881A9A6009B82A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF34384D2881A9A6009B82A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF34384F2881A9A6009B82A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 				FF3438622881D5C6009B82A0 /* SearchNetwork.swift */,
 				FFA3792C288837970030D054 /* AnswerNetwork.swift */,
 				FF3438432881A9A3009B82A0 /* SceneDelegate.swift */,
-				FF3438472881A9A3009B82A0 /* Main.storyboard */,
+				FF024FB82896D61E001D11D2 /* Localizable.strings */,
 				FF3438412881A9A3009B82A0 /* AppDelegate.swift */,
 				FF34384A2881A9A6009B82A0 /* Assets.xcassets */,
 				FF34384C2881A9A6009B82A0 /* LaunchScreen.storyboard */,
@@ -172,6 +174,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = FF3438352881A9A3009B82A0;
 			productRefGroup = FF34383F2881A9A3009B82A0 /* Products */;
@@ -189,8 +192,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF34384E2881A9A6009B82A0 /* LaunchScreen.storyboard in Resources */,
+				FF024FB62896D61E001D11D2 /* Localizable.strings in Resources */,
 				FF34384B2881A9A6009B82A0 /* Assets.xcassets in Resources */,
-				FF3438492881A9A3009B82A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,18 +226,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FF3438472881A9A3009B82A0 /* Main.storyboard */ = {
+		FF024FB82896D61E001D11D2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FF3438482881A9A3009B82A0 /* Base */,
+				FF024FB72896D61E001D11D2 /* en */,
+				FF024FBA2896D636001D11D2 /* ru */,
 			);
-			name = Main.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		FF34384C2881A9A6009B82A0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FF34384D2881A9A6009B82A0 /* Base */,
+				FF024FB92896D636001D11D2 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -306,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -368,7 +375,6 @@
 				INFOPLIST_FILE = stackoverflow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -396,7 +402,6 @@
 				INFOPLIST_FILE = stackoverflow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

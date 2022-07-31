@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  stackoverflow
+
+  Created by termyter on 31.07.2022.
+  
+*/
+"name_text" = "Автор: ";
+"date_text" = "Дата: ";
+"answer_count" = "Кол-во ответов: ";
+"score_text" = "Кол-во баллов: ";

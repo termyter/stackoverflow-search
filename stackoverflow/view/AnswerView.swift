@@ -14,16 +14,17 @@ class AnswerView: UIView {
     private var nameText = UILabel()
     var image = UIImageView()
     private var dateText = UILabel()
-    private var score = UILabel()
+    private var scoreText = UILabel()
     var model: AnswerModel = AnswerModel.empty {
         didSet {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd.MM.YYY"
             image.load(urlString: model.image)
-            nameText.text = "Автор:" + model.name
-            dateText.text = "Дата: " + formatter.string(from: model.date)
+            formatter.string(from: model.date)
+            nameText.text = NSLocalizedString("name_text", comment: "") + model.name
+            dateText.text = NSLocalizedString("date_text", comment: "") + formatter.string(from: model.date)
             bodyText.text = model.body
-            score.text = "Кол-во баллов: " + String(model.score)
+            scoreText.text =  NSLocalizedString("score_text", comment: "") + String(model.score)
         }
     }
 
@@ -73,12 +74,12 @@ class AnswerView: UIView {
     }
 
     private func setupScoreText() {
-        score.translatesAutoresizingMaskIntoConstraints = false
+        scoreText.translatesAutoresizingMaskIntoConstraints = false
 
-        addSubview(score)
-        score.topAnchor.constraint(equalTo: dateText.bottomAnchor, constant: 5).isActive = true
-        score.leadingAnchor.constraint( equalTo: image.trailingAnchor, constant: 10).isActive = true
-        score.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        addSubview(scoreText)
+        scoreText.topAnchor.constraint(equalTo: dateText.bottomAnchor, constant: 5).isActive = true
+        scoreText.leadingAnchor.constraint( equalTo: image.trailingAnchor, constant: 10).isActive = true
+        scoreText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
     }
 
     private func setupBodyText() {
@@ -99,7 +100,7 @@ class AnswerView: UIView {
         bodyText.frame = newFrame
 
         addSubview(bodyText)
-        bodyText.topAnchor.constraint(equalTo: score.bottomAnchor, constant: 5).isActive = true
+        bodyText.topAnchor.constraint(equalTo: scoreText.bottomAnchor, constant: 5).isActive = true
         bodyText.leadingAnchor.constraint( equalTo: leadingAnchor, constant: 5).isActive = true
         bodyText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         bodyText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true

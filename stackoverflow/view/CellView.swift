@@ -21,9 +21,9 @@ class CellView: UIView {
             formatter.dateFormat = "dd.MM.YYY"
             titleText.text = model.title
             image.load(urlString: model.image)
-            nameText.text = "Автор:" + model.name
-            dateText.text = "Дата: " + formatter.string(from: model.date)
-            answerCount.text = "Кол-во ответов: " + String(model.answer_count)
+            nameText.text = NSLocalizedString("name_text", comment: "") + model.name
+            dateText.text = NSLocalizedString("date_text", comment: "") + formatter.string(from: model.date)
+            answerCount.text = NSLocalizedString("answer_count", comment: "") + String(model.answer_count)
         }
     }
 
