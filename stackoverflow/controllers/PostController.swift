@@ -36,6 +36,9 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.delegate = self
         table.dataSource = self
 
+        table.estimatedRowHeight = 68.0
+        table.rowHeight = UITableView.automaticDimension
+
 
         setupUI()
         answerNetwork.answerNetworkDelegate = self
@@ -43,6 +46,13 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //переделать
         answerNetwork.fetch(idPost: model.id)
     }
+
+
+    override func viewDidAppear(_ animated: Bool) {
+
+            table.reloadData()
+
+        }
 
 
     private func setupUI() {

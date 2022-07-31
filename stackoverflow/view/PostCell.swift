@@ -25,6 +25,9 @@ class PostCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white
         setupView()
+//        print(cellView.frame)
+//        print(contentView.frame)
+//        print(self.frame)
     }
 
     override func prepareForReuse() {
@@ -42,8 +45,8 @@ class PostCell: UITableViewCell {
 
     private func setupView() {
         cellView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(cellView)
-
+        self.contentView.addSubview(cellView)
+//        addSubview(cellView)
         cellView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         cellView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
         cellView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
