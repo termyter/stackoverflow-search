@@ -10,7 +10,7 @@ import UIKit
 
 
 class CustomPostCell: UITableViewCell {
-
+    
     private var cellView = CellView()
     private var selectedButton = UIButton(type: .custom)
     var model: PostModel? {
@@ -21,7 +21,7 @@ class CustomPostCell: UITableViewCell {
             cellView.model = newValue ?? PostModel.empty
         }
     }
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white
@@ -29,24 +29,24 @@ class CustomPostCell: UITableViewCell {
         layer.cornerRadius = 14
         layer.shadowRadius = 14
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         isHidden = false
         isSelected = false
         isHighlighted = false
-
+        
         self.model = PostModel.empty
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupView() {
         cellView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cellView)
-
+        
         cellView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         cellView.leadingAnchor.constraint(
             equalTo: self.safeAreaLayoutGuide.leadingAnchor,

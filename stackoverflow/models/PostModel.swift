@@ -16,7 +16,7 @@ struct PostModel: Codable, Hashable {
     var answer_count: Int32
     var body: String
     var link: String
-
+    
     static let empty = PostModel(id: "", title: "", image: "",name: "", date: Date(), answer_count: 0, body: "", link: "")
-
+    
 }

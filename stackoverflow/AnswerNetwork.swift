@@ -11,7 +11,7 @@ import UIKit
 class AnswerNetwork {
     let session: URLSession
     var answerNetworkDelegate: AnswerhNetworkDelegate?
-
+    
     func fetch(idPost: String) {
         var listModels: [AnswerModel] = []
         if let url = createURLComponents(idPost: idPost) {
@@ -20,13 +20,13 @@ class AnswerNetwork {
                     print("URLSession dataTask error:", error ?? "nil")
                     return
                 }
-
+                
                 do {
                     let jsonObject = try JSONDecoder().decode(AnswerNetworkModel.self, from: data)
                     _ = String(data: data, encoding: .utf8)
                     for object in jsonObject.items {
                         let timeInterval = TimeInterval(object.creationDate)
-
+                        
                         let newDate = Date(timeIntervalSince1970: timeInterval)
                         let model = AnswerModel(
                             image: object.owner.profileImage,
@@ -46,16 +46,16 @@ class AnswerNetwork {
             }
         }
     }
-
+    
     init(
         session: URLSession = URLSession(configuration: .default)
     ) {
         self.session = session
     }
-
+    
     private func createURLComponents(idPost: String) -> URL? {
         var urlComponents = URLComponents()
-
+        
         urlComponents.scheme = "https"
         urlComponents.host = "api.stackexchange.com"
         urlComponents.path = "/2.3/questions/" + idPost + "/answers"
@@ -67,7 +67,7 @@ class AnswerNetwork {
         ]
         return urlComponents.url!
     }
-
+    
     private func createURLRequest(idPost: String) -> URLRequest {
         var request = URLRequest(url: createURLComponents(idPost: idPost)!)
         request.httpMethod = "GET"

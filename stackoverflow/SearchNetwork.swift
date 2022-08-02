@@ -10,7 +10,7 @@ import Foundation
 class SearchNetwork {
     let session: URLSession
     var searchNetworkDelegate: SearchNetworkDelegate?
-
+    
     func fetch(question: String) {
         var listModels: [PostModel] = []
         if let url = createURLComponents(question: question) {
@@ -19,13 +19,13 @@ class SearchNetwork {
                     print("URLSession dataTask error:", error ?? "nil")
                     return
                 }
-
+                
                 do {
                     let jsonObject = try JSONDecoder().decode(SearchNetworkModel.self, from: data)
                     _ = String(data: data, encoding: .utf8)
                     for object in jsonObject.items {
                         let timeInterval = TimeInterval(object.creationDate)
-
+                        
                         let newDate = Date(timeIntervalSince1970: timeInterval)
                         let model = PostModel(
                             id: String(object.questionID),
@@ -48,16 +48,16 @@ class SearchNetwork {
             }
         }
     }
-
+    
     init(
         session: URLSession = URLSession(configuration: .default)
     ) {
         self.session = session
     }
-
+    
     private func createURLComponents(question: String) -> URL? {
         var urlComponents = URLComponents()
-
+        
         urlComponents.scheme = "https"
         urlComponents.host = "api.stackexchange.com"
         urlComponents.path = "/2.3/search"
@@ -70,7 +70,7 @@ class SearchNetwork {
         ]
         return urlComponents.url!
     }
-
+    
     private func createURLRequest(question: String) -> URLRequest {
         var request = URLRequest(url: createURLComponents(question: question)!)
         request.httpMethod = "GET"

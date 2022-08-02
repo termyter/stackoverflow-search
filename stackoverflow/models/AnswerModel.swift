@@ -14,7 +14,7 @@ struct AnswerModel: Codable, Hashable {
     var date: Date
     var body: String
     var score: Int
-
+    
     static let empty = AnswerModel(image: "",name: "", date: Date(), body: "", score: 0)
-
+    
 }

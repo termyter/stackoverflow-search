@@ -10,14 +10,14 @@ class SearchNetworkModel: Codable {
     let items: [Item]
     let hasMore: Bool
     let quotaMax, quotaRemaining: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case items
         case hasMore = "has_more"
         case quotaMax = "quota_max"
         case quotaRemaining = "quota_remaining"
     }
-
+    
     init(items: [Item], hasMore: Bool, quotaMax: Int, quotaRemaining: Int) {
         self.items = items
         self.hasMore = hasMore
@@ -40,7 +40,7 @@ class Item: Codable {
     let title, body: String
     let acceptedAnswerID, closedDate: Int?
     let closedReason: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case tags, owner
         case isAnswered = "is_answered"
@@ -57,7 +57,7 @@ class Item: Codable {
         case closedDate = "closed_date"
         case closedReason = "closed_reason"
     }
-
+    
     init(tags: [String], owner: Owner, isAnswered: Bool, viewCount: Int, answerCount: Int, score: Int, lastActivityDate: Int, creationDate: Int, lastEditDate: Int?, questionID: Int, contentLicense: ContentLicense?, link: String, title: String, body: String, acceptedAnswerID: Int?, closedDate: Int?, closedReason: String?) {
         self.tags = tags
         self.owner = owner
@@ -93,7 +93,7 @@ class Owner: Codable {
     let profileImage: String
     let displayName: String
     let link: String
-
+    
     enum CodingKeys: String, CodingKey {
         case accountID = "account_id"
         case reputation
@@ -104,7 +104,7 @@ class Owner: Codable {
         case displayName = "display_name"
         case link
     }
-
+    
     init(accountID: Int, reputation: Int, userID: Int, userType: UserType, acceptRate: Int?, profileImage: String, displayName: String, link: String) {
         self.accountID = accountID
         self.reputation = reputation
