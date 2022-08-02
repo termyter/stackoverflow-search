@@ -8,8 +8,16 @@
 import Foundation
 import UIKit
 
-class PostCell: UITableViewCell {
+protocol PostViewDelegate: AnyObject {
+    func klickImage(sender: UITapGestureRecognizer)
+}
 
+class PostCell: UITableViewCell, PostViewDelegate {
+    func klickImage(sender: UITapGestureRecognizer) {
+        postCellDelegate?.klickImage(sender: sender)
+    }
+
+    var postCellDelegate: PostCellDelegate?
     private var cellView = PostView()
     private var selectedButton = UIButton(type: .custom)
     var model: PostModel? {
@@ -32,8 +40,8 @@ class PostCell: UITableViewCell {
         isHidden = false
         isSelected = false
         isHighlighted = false
-
         self.model = PostModel.empty
+        cellView.postViewDelegate = self
     }
 
     required init?(coder: NSCoder) {

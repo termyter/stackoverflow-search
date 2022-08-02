@@ -12,7 +12,22 @@ protocol AnswerhNetworkDelegate: AnyObject {
     func getListModels(noteModels: [AnswerModel])
 }
 
-class PostController: UIViewController, UITableViewDelegate, UITableViewDataSource, AnswerhNetworkDelegate{
+protocol PostCellDelegate: AnyObject {
+    func klickImage(sender: UITapGestureRecognizer)
+}
+
+
+
+class PostController: UIViewController, UITableViewDelegate, UITableViewDataSource, AnswerhNetworkDelegate, PostCellDelegate{
+    func klickImage(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            guard let url = URL(string: model.link) else {
+               return
+            }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
     func getListModels(noteModels: [AnswerModel]) {
         listModels += noteModels
         table.reloadData()
@@ -80,7 +95,7 @@ class PostController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostCell else {
                 fatalError("не CustomCell")
             }
-            
+            cell.postCellDelegate = self
             cell.selectionStyle = .none
             cell.model = model
             

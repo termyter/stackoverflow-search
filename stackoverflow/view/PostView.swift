@@ -12,6 +12,7 @@ import UIKit
 
 
 class PostView: UIView {
+    var postViewDelegate: PostViewDelegate?
     private var titleText = UILabel()
     private var bodyText = UILabel()
     private var nameText = UILabel()
@@ -46,12 +47,7 @@ class PostView: UIView {
     }
 
     @objc func imageTapped(sender: UITapGestureRecognizer) {
-            if sender.state == .ended {
-                guard let url = URL(string: model.link) else {
-                   return
-                }
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
+        postViewDelegate?.klickImage(sender: sender)
     }
 
     required init?(coder: NSCoder) {

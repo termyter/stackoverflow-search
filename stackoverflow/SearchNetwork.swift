@@ -30,12 +30,12 @@ class SearchNetwork {
                         let model = PostModel(
                             id: String(object.questionID),
                             title: String(htmlEncodedString: object.title) ?? "",
-                            image: object.owner.profileImage!,
+                            image: object.owner.profileImage,
                             name: String(htmlEncodedString: object.owner.displayName) ?? "",
                             date: newDate,
                             answer_count: Int32(object.answerCount),
                             body: String(htmlEncodedString: object.body) ?? "",
-                            link: object.owner.link ?? ""
+                            link: object.owner.link 
                         )
                         listModels.append(model)
                     }
